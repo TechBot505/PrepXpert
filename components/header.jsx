@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/dashboard">
+        <Link href="/">
           <Image
             src={"/logo.png"}
             alt="Sensai"
@@ -31,42 +31,46 @@ const Header = () => {
             className="h-12 py-1 w-auto object-contain"
           />
         </Link>
-        <div className="flex space-x-2 items-center md:space-x-4">
+
+        <div className="flex items-center space-x-2 md:space-x-4">
           <SignedIn>
             <Link href="/dashboard">
-              <Button variant="outline">
-                <LayoutDashboard size={20} />
-                <span className="hidden md:block">Industry Insights</span>
+              <Button variant="outline" className="hidden md:inline-flex items-center gap-2">
+                <LayoutDashboard className="h-4 w-4" />
+                Industry Insights
+              </Button>
+              <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+                <LayoutDashboard className="h-4 w-4" />
               </Button>
             </Link>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button>
-                  <Stars size={20} />
+                  <Stars className="h-4 w-4" />
                   <span className="hidden md:block">Growth Tools</span>
-                  <ChevronDown size={20} />
+                  <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem asChild>
                   <Link href={"/resume"} className="flex items-center gap-2">
-                    <FileText size={20} />
+                    <FileText className="h-4 w-4" />
                     <span>Build Resume</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link
                     href={"/ai-cover-letter"}
                     className="flex items-center gap-2"
                   >
-                    <PenBox size={20} />
+                    <PenBox className="h-4 w-4" />
                     <span>Cover Letter</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
+                <DropdownMenuItem asChild>
                   <Link href={"/interview"} className="flex items-center gap-2">
-                    <GraduationCap size={20} />
+                    <GraduationCap className="h-4 w-4" />
                     <span>Interview Prep</span>
                   </Link>
                 </DropdownMenuItem>
