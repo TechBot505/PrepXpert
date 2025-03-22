@@ -1,7 +1,6 @@
 import React from "react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "./ui/button";
 import {
   ChevronDown,
@@ -9,6 +8,7 @@ import {
   GraduationCap,
   LayoutDashboard,
   PenBox,
+  Rocket,
   Stars,
 } from "lucide-react";
 import {
@@ -24,15 +24,12 @@ const Header = async () => {
   return (
     <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50 supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/">
-          <Image
-            src={"/logo.png"}
-            alt="Sensai"
-            width={200}
-            height={60}
-            className="h-12 py-1 w-auto object-contain"
-          />
-        </Link>
+        <div>
+            <Link className="flex items-center justify-center gap-2" href="/">
+                <h1 className="font-bold text-2xl">PrepXpert</h1>
+                <Rocket className="h-6 w-6" />
+            </Link>
+        </div>
 
         <div className="flex items-center space-x-2 md:space-x-4">
           <SignedIn>
