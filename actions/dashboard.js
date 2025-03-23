@@ -43,7 +43,8 @@ export async function getIndustryInsights() {
     if(!userId) throw new Error("Not authenticated");
 
     const user = await db.user.findUnique({
-        where: { clerkUserId: userId }
+        where: { clerkUserId: userId },
+        include: { industryInsight: true }
     })
 
     if(!user) throw new Error("User not found");
@@ -55,7 +56,7 @@ export async function getIndustryInsights() {
             data: {
                 industry: user.industry,
                 ...insights,
-                nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+                nextUpdate: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000)
             }
         });
         return industryInsight;
