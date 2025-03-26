@@ -73,12 +73,22 @@ body {
 
 @layer utilities {
   .gradient {
-    @apply bg-gradient-to-b from-amber-500 via-yellow-400 to-orange-600;
+    @apply bg-gradient-to-b from-amber-500 via-yellow-300 to-orange-500;
   }
   .gradient-title {
     @apply gradient font-extrabold tracking-tighter text-transparent bg-clip-text pb-2 pr-2;
   }
 }
+
+@layer utilities {
+  .gradient-light {
+    @apply bg-gradient-to-b from-amber-300 via-yellow-200 to-orange-300;
+  }
+  .gradient-title-light {
+    @apply gradient-light font-extrabold tracking-tighter text-transparent bg-clip-text pb-2 pr-2;
+  }
+}
+
 
 .hero-image-wrapper {
   perspective: 1000px;
